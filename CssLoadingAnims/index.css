@@ -1,0 +1,546 @@
+html, body {
+  margin: 0; 
+  height: 100%; 
+  overflow: hidden
+}
+
+p {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+div {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 0px;
+}
+
+#BG {
+  display: initial;
+  z-index: -1;
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+#WhiteSpace {
+  width: 100%;
+  height: 100%;
+  display: initial;
+  z-index: 4;
+  background: rgba(255,255,255,1);
+  
+  animation-name: whiteSpaceOpen;
+  animation-duration: 5s;
+  animation-delay: 4.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes whiteSpaceOpen {
+  0% {
+    background: rgba(255,255,255,1);
+  }
+  100% {
+    background: rgba(255,255,255,0);
+  }
+}
+
+#Selector {
+  display: initial;
+  background: rgba(255,255,255,0);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+}
+
+#Transition {
+  display: initial;
+  width: 120%;
+  height: 120%;
+  background: rgba(255,255,255,0);
+  z-index: 3;
+}
+
+.transitionAnim {
+  animation-name: whiteSpace;
+  animation-duration: 1s;
+}
+
+@keyframes whiteSpace {
+  0% {
+    background: rgba(255,255,255,0);
+  }
+  10% {
+    background: rgba(255,255,255,1);
+  }
+  50% {
+    background: rgba(255,255,255,1);
+  }
+  100% {
+    background: rgba(255,255,255,0);
+  }
+}
+
+#WhiteSpace > p {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.5em);
+  transform: translate(-50%,0); 
+  font-size: 200%;
+  height: 10%;
+  font-family: mono, "Lucida Console";
+  color: rgba(0,0,0,0);
+  
+  animation-name: textTransition;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes textTransition {
+  0% {
+    color: rgba(0,0,0,0);
+  }
+  30%,70% {
+    color: rgba(0,0,0,1);
+  }
+  99.99% {
+    color: rgba(0,0,0,0);
+  }
+  100% {
+    color: rgba(0,0,0,0);
+  }
+}
+
+#Info {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 1.5em);
+  transform: translate(-50%,-100%); 
+  font-size: 100%;
+  font-family: mono, "Lucida Console";
+  z-index: 4;
+  opacity: 0;
+  
+  /*
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  */
+  
+  color: black;
+  filter: invert(1);
+  mix-blend-mode: difference;
+  
+  animation-name: InfoText;
+  animation-duration: 1s;
+  animation-delay: 6.1s;
+  animation-fill-mode: forwards;
+}
+
+#Name {
+  position: absolute;
+  left: 50%;
+  top: 0.5em;
+  transform: translate(-50%,-100%); 
+  font-size: 1.5em;
+  font-family: mono, "Lucida Console";
+  z-index: 4;
+  opacity: 0;
+  
+  /*
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  */
+  
+  color: black;
+  filter: invert(1);
+  mix-blend-mode: difference;
+  
+  animation-name: InfoText;
+  animation-duration: 1s;
+  animation-delay: 6.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes InfoText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#Info.transitionText, #Name.transitionText {
+  animation-name: animText;
+  animation-duration: 0.9s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animText {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body > div {
+  display: none;
+}
+
+#Circle > div {
+  height: 50%;
+  width: max-content;
+  aspect-ratio: auto 1 / 1;
+  border-radius: 100%;
+  background: rgba(0,0,0,0.5);
+  
+  animation-name: circle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes circle {
+  0% {
+    height: 50%;
+  }
+  50% {
+    height: 0%;
+  }
+  100% {
+    height: 50%;
+  }
+}
+
+#_3Dots > div {
+  height: 20%;
+  width: max-content;
+  aspect-ratio: auto 1 / 1;
+  border-radius: 100%;
+  background: rgba(0,30,150,0.5);
+  
+  animation-name: ThreeDots;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ThreeDots {
+  0% {
+    top: 50%;
+  }
+  33% {
+    top: 30%;
+  }
+  66% {
+    top: 50%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+
+#_3Bars > div {
+  height: max-content;
+  width: 2%;
+  aspect-ratio: auto 1 / 1;
+  border-radius: 5px;
+  background: rgba(0,30,150,0.5);
+  
+  animation-name: ThreeBars;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ThreeBars {
+  0% {
+    aspect-ratio: auto 1 / 1;
+  }
+  33% {
+    aspect-ratio: auto 1 / 3;
+  }
+  66% {
+    aspect-ratio: auto 1 / 1;
+  }
+  100% {
+    aspect-ratio: auto 1 / 1;
+  }
+}
+
+#_3BarsRebound > div {
+  height: max-content;
+  width: 2%;
+  aspect-ratio: auto 1 / 1;
+  border-radius: 5px;
+  background: rgba(0,30,150,0.5);
+  
+  animation-name: ThreeBarsRebound;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ThreeBarsRebound {
+  0% {
+    aspect-ratio: auto 1 / 1;
+  }
+  25% {
+    aspect-ratio: auto 1 / 3;
+  }
+  50% {
+    aspect-ratio: auto 1 / 1;
+  }
+  75% {
+    aspect-ratio: auto 1 / 1;
+  }
+  100% {
+    aspect-ratio: auto 1 / 1;
+  }
+}
+
+@keyframes ThreeBarsReboundMid {
+  0% {
+    aspect-ratio: auto 1 / 1;
+  }
+  25% {
+    aspect-ratio: auto 1 / 3;
+  }
+  50% {
+    aspect-ratio: auto 1 / 1;
+  }
+  75% {
+    aspect-ratio: auto 1 / 3;
+  }
+  100% {
+    aspect-ratio: auto 1 / 1;
+  }
+}
+
+#Square > div {
+  height: max-content;
+  width: 5%;
+  aspect-ratio: auto 1 / 1;
+  background: rgb(0,0,0);
+  transform: translate(-50%, -50%) rotate(45deg);
+  
+  animation-name: squareRotation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes squareRotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(225deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+
+#arcs div {
+    aspect-ratio: 1;
+
+    width: auto;
+    height: calc(100% - 10vh);
+
+    border: 0.2em solid #000;
+    display: inline-block;
+    /*min-width: 4em;
+    min-height: 4em;*/
+    padding: 0em;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+
+    animation-name: arcsRotation;
+    animation-timing-function: ease-in-out;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+
+    transform-origin: 0 0;
+}
+
+@keyframes arcsRotation {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  50% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(720deg) translate(-50%, -50%);
+  }
+}
+
+#InvertedRotation > div {
+  background: rgb(0,0,0);
+  width: 150vmax;
+  height: 150vmax;
+  transform: translate(-50%,-100%);
+  transform-origin: 50% 100%;
+  
+  animation-name: rotationInvertCircle;
+  animation-timing-function: linear;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotationInvertCircle {
+  0% {
+    transform: translate(-50%,-100%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%,-100%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%,-100%) rotate(360deg);
+  }
+}
+
+#InvertedRotation > div > div {
+  aspect-ratio: 1/1;
+  width: max-content;
+  height: 4%;
+  border-radius: 100%;
+  top: 100%;
+  backdrop-filter: invert(100%);
+  
+  animation-name: invertCircle;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes invertCircle {
+  0% {
+    top: 103%;
+  }
+  50% {
+    top: 97%;
+  }
+  100% {
+    top: 103%;
+  }
+}
+
+#HalfInvertedCircle > div {
+  aspect-ratio: 1/1;
+  width: max-content;
+  height: 60%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+#HalfInvertedCircle > div > div {
+  transform: translate(-50%, 0);
+  transform-origin: 50% 0%;
+  top: 50%;
+  width: 120%;
+  height: 60%;
+  backdrop-filter: invert(100%);
+  
+  animation-name: rotateCircle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+#HalfInvertedCircle2 > div {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: max-content;
+  height: 60%;
+  border-radius: 100%;
+}
+
+#HalfInvertedCircle2 > div :nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  width: max-content;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+#HalfInvertedCircle2 > div :nth-child(1) > div {
+  transform: translate(-50%, 0);
+  transform-origin: 50% 0%;
+  top: 50%;
+  width: 120%;
+  height: 70%;
+  backdrop-filter: invert(100%);
+  border-radius: 0%;
+  
+  animation-name: rotateCircle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#HalfInvertedCircle2 > div :nth-child(2) {
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: max-content;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#HalfInvertedCircle2 > div :nth-child(2) > div {
+  transform: translate(-50%, 0%);
+  transform-origin: 50% 0%;
+  top: 50%;
+  width: 120%;
+  height: 70%;
+  backdrop-filter: invert(100%);
+  border-radius: 0%;
+  
+  animation-name: rotateCircle2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: -1s;
+}
+
+@keyframes rotateCircle2 {
+  0% {
+    transform: translate(-50%, 0%) rotate(360deg);
+  }
+  50% {
+    transform: translate(-50%, 0%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) rotate(0deg);
+  }
+}
